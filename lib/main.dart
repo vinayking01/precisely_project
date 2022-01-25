@@ -19,8 +19,9 @@ class Myform1 extends StatefulWidget{
 
 
 class MyForm extends State<Myform1> {
-  final _formkey = GlobalKey<FormBuilderState>();
   TextEditingController dateinput = TextEditingController();
+  int _value = 1;
+  bool _checkBoxValue = false;
 
   @override
   void initState() {
@@ -40,7 +41,7 @@ class MyForm extends State<Myform1> {
             child: Form(
               child: Column(children: <Widget>[
                 Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                         decoration: InputDecoration(
                           labelText: "Name",
@@ -52,11 +53,84 @@ class MyForm extends State<Myform1> {
                     )
                 ),
                 Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(5),
                     child: DOB(),
                 ),
+                Container(
+                  child : Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: Text(
+                          'Select Your Gender',
+                        ),
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                            value: 1,
+                            groupValue: _value,
+                            onChanged: (value){
+                              setState(() {
+                                _value = value as int;
+                              });
+                            },
+                          ),
+                          const Text("Male"),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                            value: 2,
+                            groupValue: _value,
+                            onChanged: (value){
+                              setState(() {
+                                _value = value as int;
+                              });
+                            },
+                          ),
+                          const Text("Female"),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                            value: 3,
+                            groupValue: _value,
+                            onChanged: (value){
+                              setState(() {
+                                _value = value as int;
+                              });
+                            },
+                          ),
+                          const Text("Other"),
+                        ],
+                      ),
+                      // may bew work
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _checkBoxValue,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                _checkBoxValue = value as bool;
+                              });
+                            },
+                          ),
+                          const Text(
+                              "Please accept our Terms and conditions"
+                          ),
+                        ],
+                      ),
+                      // ttll then here may be work
+                    ],
+                  ),
+                ),
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
