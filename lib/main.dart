@@ -261,7 +261,8 @@ class MyForm extends State<Myform1> {
                                   'Please fill with your details',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Color(0xD5FFFFE9),
+                                      // color: Color(0xD5FFFFE9),
+                                      color:Colors.white,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 17),
                                 ),
